@@ -48,4 +48,32 @@ plt.hist(arr, bins=20)
 st.pyplot(fig)
 
 import plotly
-import plotly.figure_factory as ff
+# import plotly.figure_factory as ff
+
+x1 = np.random.randn(200) - 2
+x2 = np.random.randn(200) 
+x3 = np.random.randn(200) + 2
+
+hist_data = [x1, x2, x3]
+group_labes=['Group1', 'Group2', 'Group3']
+
+df = pd.DataFrame(np.random.randn(100,2)/[50,50]+[37.76, -122.4], columns=['lat', 'lon'])
+
+st.map()
+
+# creating buttons
+if st.button('Say hello'):
+    st.write('hello is here')
+else:
+    st.write('wh are you here?')
+
+genre = st.radio('What is a radio button?', options=['elnur', 'kamal', 'hesen', 'cemil'])
+
+if genre=='elnur':
+    st.write('oh you like elnur')
+elif genre=='kamal':
+    st.write('kamal maldi')
+
+st.text('-'*83)
+
+option = st.selectbox('how was your night', options=['fantastic', 'great', 'super'])
