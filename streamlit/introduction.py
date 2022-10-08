@@ -77,3 +77,44 @@ elif genre=='kamal':
 st.text('-'*83)
 
 option = st.selectbox('how was your night', options=['fantastic', 'great', 'super'])
+
+st.write('you said yoru night was ', option)
+
+options = st.multiselect('how was your night multiselect?', options=['fantastic', 'great', 'super'])
+st.write('you said your night was', options[0],' and ', options[1])
+
+age = st.slider('How old are you?', min_value=1, max_value=100)
+st.write(f'You are {age} years old')
+
+values = st.slider('select a range of values',0, 100, (15,80))
+
+st.write('you selected the range between:' ,values)
+
+number = st.number_input('Please enter your birth year',)
+
+st.write(f'You are {round(2022-number)} years old')
+
+upload_file = st.file_uploader('Choose a csv file to upload',type='csv')
+
+if upload_file is not None:
+    data = pd.read_csv(upload_file)
+    st.write(data)
+    st.success('successfully uploaded the csv file')
+else:
+    st.error('the file you uploaded is empty, please upload a valid file')
+    
+color = st.color_picker('Pick your preferred color:','#00f900')
+st.write('This is the color you picked', color)
+
+add_sidebar = st.sidebar.selectbox('What is your favorite course:', options=['A course from TDS on building web app', 'udemy course on full stack data science'])
+
+import time
+my_bar = st.progress(0)
+for percent_complete in range(101):
+    time.sleep(0.1)
+    my_bar.progress(percent_complete)
+    
+with st.spinner('waiting for it'):
+    time.sleep(5)
+st.success('successfully done')
+st.balloons()
