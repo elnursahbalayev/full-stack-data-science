@@ -14,12 +14,10 @@ def content():
 def about():
     return 'We are new to flask and we are trying things out'
 
-@app.route('/index')
-def table():
-    return  render_template('index.html')
+@app.route('/index/<int:num>')
+def table(num):
+    return  render_template('index.html', n=num)
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-#%%
